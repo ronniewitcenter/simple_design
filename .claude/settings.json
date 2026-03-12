@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -n '`DS` prefix\\\\|`SD` prefix' /Users/thruthesky/Documents/ronnie/flutter_projects/simple_design/CLAUDE.md)"
+    ]
+  }
+}
