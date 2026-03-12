@@ -2,7 +2,7 @@
 
 A clean, minimal Flutter design system. Any component works in 1–2 lines. Colors and typography come from Flutter's built-in theme system — no hardcoded values ever.
 
-**Current version:** v0.3.0 — Data Display
+**Current version:** v0.4.0 — Feedback
 
 ---
 
@@ -14,7 +14,7 @@ dependencies:
   simple_design:
     git:
       url: https://github.com/your-org/sd_flutter.git
-      ref: v0.3.0
+      ref: v0.4.0
 ```
 
 ## Quick Start
@@ -69,7 +69,7 @@ Theme.of(context).textTheme.bodyMedium
 
 ---
 
-## Components — v0.3
+## Components — v0.4
 
 ### SDButton
 
@@ -246,6 +246,63 @@ SDTag(label: 'Error', color: Theme.of(context).colorScheme.errorContainer)
 
 ---
 
+### v0.4 — Feedback
+
+#### SDAlert
+
+```dart
+SDAlert.info(message: 'Session expires soon.')
+SDAlert.success(message: 'Profile updated!', title: 'Done')
+SDAlert.warning(message: 'Storage almost full.', onDismiss: () {})
+SDAlert.error(message: 'Connection failed.', title: 'Error', onDismiss: () {})
+```
+
+#### SDModal
+
+```dart
+SDModal.show(context, title: 'Save?', body: 'Unsaved changes will be lost.', onConfirm: () {})
+SDModal.showDestructive(context, title: 'Delete?', body: 'This cannot be undone.', onConfirm: () {})
+```
+
+#### SDSnackbar
+
+```dart
+SDSnackbar.show(context, message: 'Changes saved')
+SDSnackbar.show(context, message: 'Item deleted', actionLabel: 'Undo', onAction: () {})
+SDSnackbar.showError(context, message: 'Failed to save')  // cs.error bg, cs.onError text
+```
+
+#### SDToast
+
+```dart
+SDToast.show(context, message: 'Copied to clipboard')
+SDToast.show(context, message: 'Upload complete', icon: Icons.cloud_done_outlined)
+```
+
+#### SDBottomSheet
+
+```dart
+SDBottomSheet.show(context, title: 'Options', child: Column(children: [...]))
+```
+
+#### SDProgressBar
+
+```dart
+SDProgressBar()                                // indeterminate
+SDProgressBar(value: 0.6)                      // 60%
+SDProgressBar(value: 0.4, label: 'Uploading…') // with label + %
+```
+
+#### SDSkeletonLoader
+
+```dart
+SDSkeletonLoader(width: double.infinity, height: 16)    // text line
+SDSkeletonLoader(width: 48, height: 48, circular: true) // avatar
+SDSkeletonLoader.card()                                  // card preset
+```
+
+---
+
 ## Animation Tokens
 
 ```dart
@@ -281,7 +338,7 @@ See [CHANGELOG.md](CHANGELOG.md) for the full version history and upcoming miles
 | **v0.1** ✅ | Tokens, SDTheme, SDButton, SDText, SDIconLabel, SDDivider, SDSpinner |
 | **v0.2** ✅ | SDTextField, SDDropdown, SDMultiSelect, SDCheckbox, SDRadioGroup, SDSwitch, SDSlider, SDDatePicker, SDForm |
 | **v0.3** ✅ | SDCard, SDListItem, SDTable, SDBadge, SDAvatar, SDChip, SDTag |
-| v0.4 | SDAlert, SDModal, SDSnackbar, SDToast, SDBottomSheet, SDProgressBar |
+| **v0.4** ✅ | SDAlert, SDModal, SDSnackbar, SDToast, SDBottomSheet, SDProgressBar, SDSkeletonLoader |
 | v0.5 | SDAppBar, SDTabs, SDBottomNav, SDDrawer, SDBreadcrumb |
 | v0.6 | SDAccordion, SDCarousel, SDBentoBox, SDEmptyState |
 | v0.7 | SDSplashScreen, SDLoginScreen, SDRegisterScreen, SDOnboardingScreen |

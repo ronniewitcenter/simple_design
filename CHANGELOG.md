@@ -6,6 +6,48 @@ Versions follow [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [v0.4.0] — 2026-03-12
+
+### Added — Components
+
+- **`SDAlert`** — inline alert banner, 4 variants
+  - `.info(message, {title, onDismiss})` — `colorScheme.secondaryContainer`
+  - `.success(message, {title, onDismiss})` — `colorScheme.tertiaryContainer`
+  - `.warning(message, {title, onDismiss})` — `colorScheme.errorContainer` tint
+  - `.error(message, {title, onDismiss})` — `colorScheme.errorContainer`
+  - `Semantics(liveRegion: true)` on all variants; dismiss uses `IconButton` (48dp)
+
+- **`SDModal`** — static dialog helper
+  - `.show(context, {title, body, confirmLabel, cancelLabel, onConfirm, onCancel})` — standard two-button `AlertDialog`
+  - `.showDestructive(context, {title, body, confirmLabel, cancelLabel, onConfirm, onCancel})` — confirm uses `cs.error` / `cs.onError`
+
+- **`SDSnackbar`** — static snackbar helper
+  - `.show(context, {message, actionLabel?, onAction?, duration})` — `SnackBarBehavior.floating`
+  - `.showError(context, {message, actionLabel?, onAction?})` — `cs.error` background, `cs.onError` text
+
+- **`SDToast`** — static overlay toast
+  - `.show(context, {message, icon?, duration})` — overlay-based, auto-dismisses with fade
+  - Appears near top of screen; uses `cs.inverseSurface` / `cs.onInverseSurface`
+
+- **`SDBottomSheet`** — static modal bottom sheet helper
+  - `.show<T>(context, {child, title?, isDismissible})` — drag handle, `cs.onSurfaceVariant`
+
+- **`SDProgressBar`** — linear progress widget
+  - `SDProgressBar({value?, label?})` — determinate (`0.0–1.0`) when `value` provided, indeterminate otherwise
+  - Shows percentage label when both `value` and `label` are provided
+  - `LinearProgressIndicator` clipped with `BorderRadius.circular(4)`
+
+- **`SDSkeletonLoader`** — animated shimmer placeholder
+  - `SDSkeletonLoader({width, height, circular?})` — opacity animation `0.4→1.0` at 1200ms repeat
+  - `SDSkeletonLoader.card()` — preset card-shaped skeleton
+
+### Added — Showcase App
+
+- **Feedback screen** (`/feedback`) — all 7 feedback components with live demos
+- Shell switched from `NavigationBar` to `NavigationDrawer` (M3) to accommodate growing destination count
+
+---
+
 ## [v0.3.0] — 2026-03-12
 
 ### Added — Components
@@ -163,7 +205,7 @@ Versions follow [Semantic Versioning](https://semver.org/).
 |---|---|
 | v0.2.0 | Forms & Inputs — `SDTextField`, `SDDropdown`, `SDCheckbox`, `SDRadio`, `SDSwitch`, `SDSlider`, `SDForm` |
 | v0.3.0 | Data Display — `SDCard`, `SDList`, `SDTable`, `SDBadge`, `SDAvatar`, `SDChip`, `SDTag` |
-| v0.4.0 | Feedback — `SDAlert`, `SDModal`, `SDSnackbar`, `SDToast`, `SDBottomSheet`, `SDProgressBar` |
+| v0.4.0 ✅ | Feedback — `SDAlert`, `SDModal`, `SDSnackbar`, `SDToast`, `SDBottomSheet`, `SDProgressBar`, `SDSkeletonLoader` |
 | v0.5.0 | Navigation — `SDAppBar`, `SDTabs`, `SDBottomNav`, `SDDrawer`, `SDBreadcrumb` |
 | v0.6.0 | Layout — `SDAccordion`, `SDCarousel`, `SDBentoBox`, `SDEmptyState` |
 | v0.7.0 | Entry Screens — `SDSplashScreen`, `SDLoginScreen`, `SDRegisterScreen`, `SDOnboardingScreen` |
