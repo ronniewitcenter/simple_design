@@ -55,16 +55,6 @@ class ShowcaseShell extends StatelessWidget {
       selectedIcon: Icon(Icons.notifications),
       label: Text('Feedback'),
     ),
-    NavigationDrawerDestination(
-      icon: Icon(Icons.dashboard_outlined),
-      selectedIcon: Icon(Icons.dashboard),
-      label: Text('Layout'),
-    ),
-    NavigationDrawerDestination(
-      icon: Icon(Icons.palette_outlined),
-      selectedIcon: Icon(Icons.palette),
-      label: Text('Theme'),
-    ),
   ];
 
   // Maps drawer index → section label index offset.
@@ -146,8 +136,6 @@ class ShowcaseShell extends StatelessWidget {
           ),
           _destinations[6], // Navigation
           _destinations[7], // Feedback
-          _destinations[8], // Layout
-          _destinations[9], // Theme
 
           const SizedBox(height: 12),
         ],
