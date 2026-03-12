@@ -54,7 +54,7 @@ class SDAvatar extends StatelessWidget {
           radius: radius,
           backgroundColor: cs.primaryContainer,
           child: Text(
-            _initials!.length > 2 ? _initials!.substring(0, 2) : _initials!,
+            (_initials ?? '').length > 2 ? (_initials ?? '').substring(0, 2) : (_initials ?? ''),
             style: Theme.of(context).textTheme.labelMedium?.copyWith(
                   color: cs.onPrimaryContainer,
                   fontWeight: FontWeight.bold,

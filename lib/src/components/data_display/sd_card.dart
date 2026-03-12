@@ -15,12 +15,11 @@ class SDCard extends StatelessWidget {
     VoidCallback? onTap,
     EdgeInsetsGeometry? padding,
     required _SDCardVariant variant,
-    Key? key,
+    super.key,
   })  : _child = child,
         _onTap = onTap,
         _padding = padding,
-        _variant = variant,
-        super(key: key);
+        _variant = variant;
 
   const SDCard.elevated({
     required Widget child,
