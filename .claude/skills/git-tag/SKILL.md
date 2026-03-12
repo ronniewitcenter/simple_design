@@ -46,3 +46,4 @@ Tag the current commit to mark a completed implementation milestone.
 - Never push automatically — only create the local tag and remind the user to push.
 - Follow semantic versioning: `v{major}.{minor}.{patch}` (e.g. `v0.1.0`).
 - Milestone tags from `CLAUDE.md` map to versions: v0.1 Foundation → `v0.1.0`, v0.2 Forms → `v0.2.0`, etc.
+- Do not put Co-Authored-By:, no exceptions
