@@ -43,7 +43,7 @@ class EntryScreensScreen extends StatelessWidget {
             label: 'Preview Login Screen',
             leadingIcon: Icons.login_outlined,
             onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-              builder: (_) => SDLoginScreen(
+              builder: (ctx) => SDLoginScreen(
                 logo: const FlutterLogo(size: 64),
                 onLogin: (email, password) async {
                   await Future.delayed(const Duration(seconds: 1));
@@ -51,8 +51,24 @@ class EntryScreensScreen extends StatelessWidget {
                     throw Exception('Invalid credentials. Try a longer password.');
                   }
                 },
-                onForgotPassword: () {},
-                onRegister: () {},
+                onForgotPassword: () => Navigator.of(ctx).push(MaterialPageRoute(
+                  builder: (ctx2) => SDForgotPasswordScreen(
+                    logo: const FlutterLogo(size: 64),
+                    onSendLink: (email) async {
+                      await Future.delayed(const Duration(seconds: 1));
+                    },
+                    onBack: () => Navigator.of(ctx2).pop(),
+                  ),
+                )),
+                onRegister: () => Navigator.of(ctx).push(MaterialPageRoute(
+                  builder: (ctx2) => SDRegisterScreen(
+                    logo: const FlutterLogo(size: 64),
+                    onRegister: (name, email, password) async {
+                      await Future.delayed(const Duration(seconds: 1));
+                    },
+                    onLogin: () => Navigator.of(ctx2).pop(),
+                  ),
+                )),
               ),
             )),
           ),
