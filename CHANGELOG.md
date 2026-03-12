@@ -6,6 +6,34 @@ Versions follow [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [v0.6.0] — 2026-03-12
+
+### Added — Components
+
+- **`SDDividerLabel`** — horizontal rule with a centered text label
+  - Parameters: `label`, `style?`
+  - Typical uses: `OR` separators, `TODAY` timestamps, section titles
+
+- **`SDAccordion`** + **`SDAccordionItem`** — collapsible panel group
+  - `SDAccordionItem(title, child, {initiallyExpanded})` for panel definitions
+  - Parameters: `items`, `allowMultiple` (default `false` — closing others on expand)
+
+- **`SDCarousel`** — `PageView`-based image/widget carousel with dot indicator
+  - Parameters: `children`, `viewportFraction` (default `1.0`; set `< 1.0` for peeking effect), `height`, `onPageChanged?`
+
+- **`SDBentoBox`** + **`SDBentoItem`** — flex-grid layout for dashboard-style bento grids
+  - `SDBentoItem(child, {flex, rowHeight})` for cell definitions
+  - Parameters: `items`, `columns`, `gap` (default 16dp)
+
+- **`SDEmptyState`** — centered empty state display
+  - Parameters: `icon`, `title`, `message`, `action?` (optional `SDButton`)
+
+### Added — Showcase App
+
+- **Layout screen** (`/layout`) — live demos of all 5 layout components; added to navigation drawer
+
+---
+
 ## [v0.5.0] — 2026-03-12
 
 ### Added — Components
@@ -240,6 +268,6 @@ Versions follow [Semantic Versioning](https://semver.org/).
 | v0.3.0 | Data Display — `SDCard`, `SDList`, `SDTable`, `SDBadge`, `SDAvatar`, `SDChip`, `SDTag` |
 | v0.4.0 ✅ | Feedback — `SDAlert`, `SDModal`, `SDSnackbar`, `SDToast`, `SDBottomSheet`, `SDProgressBar`, `SDSkeletonLoader` |
 | v0.5.0 ✅ | Navigation — `SDAppBar`, `SDTabs`, `SDBottomNav`, `SDDrawer`, `SDBreadcrumb`, `SDStepIndicator` |
-| v0.6.0 | Layout — `SDAccordion`, `SDCarousel`, `SDBentoBox`, `SDEmptyState` |
+| v0.6.0 ✅ | Layout — `SDDividerLabel`, `SDAccordion`, `SDCarousel`, `SDBentoBox`, `SDEmptyState` |
 | v0.7.0 | Entry Screens — `SDSplashScreen`, `SDLoginScreen`, `SDRegisterScreen`, `SDOnboardingScreen` |
 | v1.0.0 | Dark theme showcase, full README, release |

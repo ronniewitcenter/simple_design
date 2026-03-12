@@ -2,7 +2,7 @@
 
 A clean, minimal Flutter design system. Any component works in 1–2 lines. Colors and typography come from Flutter's built-in theme system — no hardcoded values ever.
 
-**Current version:** v0.5.0 — Navigation
+**Current version:** v0.6.0 — Advanced Layout
 
 ---
 
@@ -14,7 +14,7 @@ dependencies:
   simple_design:
     git:
       url: https://github.com/your-org/sd_flutter.git
-      ref: v0.5.0
+      ref: v0.6.0
 ```
 
 ## Quick Start
@@ -375,6 +375,78 @@ SDStepIndicator(
 
 ---
 
+### v0.6 — Layout
+
+#### SDDividerLabel
+
+```dart
+SDDividerLabel(label: 'OR')
+SDDividerLabel(label: 'TODAY')
+SDDividerLabel(label: 'Section Title', style: Theme.of(context).textTheme.labelSmall)
+```
+
+#### SDAccordion
+
+```dart
+SDAccordion(
+  items: [
+    SDAccordionItem(title: 'What is Flutter?',   child: Text('A UI toolkit by Google.')),
+    SDAccordionItem(title: 'Why use this package?', child: Text('1–2 line components.')),
+  ],
+)
+
+// Allow multiple panels open at once
+SDAccordion(allowMultiple: true, items: [...])
+```
+
+#### SDCarousel
+
+```dart
+// Full-width slides
+SDCarousel(
+  height: 200,
+  children: [Image.network('...'), Image.network('...'), Image.network('...')],
+)
+
+// Peeking effect — partially show adjacent slides
+SDCarousel(height: 180, viewportFraction: 0.85, children: [...])
+```
+
+#### SDBentoBox
+
+```dart
+SDBentoBox(
+  columns: 2,
+  gap: 12,
+  items: [
+    SDBentoItem(flex: 2, rowHeight: 160, child: Text('Wide cell')),
+    SDBentoItem(flex: 1, rowHeight: 160, child: Text('Narrow cell')),
+    SDBentoItem(flex: 1, rowHeight: 120, child: Text('Cell C')),
+    SDBentoItem(flex: 1, rowHeight: 120, child: Text('Cell D')),
+  ],
+)
+```
+
+#### SDEmptyState
+
+```dart
+SDEmptyState(
+  icon: Icons.inbox_outlined,
+  title: 'Nothing here yet',
+  message: 'Your saved items will appear here.',
+)
+
+// With action
+SDEmptyState(
+  icon: Icons.search_off_outlined,
+  title: 'No results',
+  message: 'Try a different search term.',
+  action: SDButton.primary(label: 'Clear search', onPressed: () {}),
+)
+```
+
+---
+
 ## Animation Tokens
 
 ```dart
@@ -412,7 +484,7 @@ See [CHANGELOG.md](CHANGELOG.md) for the full version history and upcoming miles
 | **v0.3** ✅ | SDCard, SDListItem, SDTable, SDBadge, SDAvatar, SDChip, SDTag |
 | **v0.4** ✅ | SDAlert, SDModal, SDSnackbar, SDToast, SDBottomSheet, SDProgressBar, SDSkeletonLoader |
 | **v0.5** ✅ | SDAppBar, SDTabs, SDBottomNav, SDDrawer, SDBreadcrumb, SDStepIndicator |
-| v0.6 | SDAccordion, SDCarousel, SDBentoBox, SDEmptyState |
+| **v0.6** ✅ | SDDividerLabel, SDAccordion, SDCarousel, SDBentoBox, SDEmptyState |
 | v0.7 | SDSplashScreen, SDLoginScreen, SDRegisterScreen, SDOnboardingScreen |
 | v1.0 | Full release |
 
