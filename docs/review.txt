@@ -103,3 +103,11 @@ the idea is that the default language is set to english
 so there must some sort of centralize app strings that we can customize for all the labels and text in our UI components/widgets
 and some sort of language settings to allow users to quickly change the current language
 and let that l10n library to handle the translation for whatever language the user selected it will automatically translate the English to Some language e.g., transles all english strings into Korean
+
+
+use shade of green for success alert 
+use shade of blue for info alert
+use shade of yellow for warning alert
+use shade of red for danger/error alert
+
+apply this across the entire feedback components or across the entire project if this change is applicable to other components as well
