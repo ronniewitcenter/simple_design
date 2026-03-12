@@ -1,5 +1,4 @@
 # simple_design
-# simple_design
 
 [![Version](https://img.shields.io/badge/version-v0.4.0-0D1117?style=flat-square&logo=github)](https://github.com/ronniewitcenter/simple_design/releases/tag/v0.7.3)
 [![Flutter](https://img.shields.io/badge/Flutter-3.10+-02569B?style=flat-square&logo=flutter)](https://flutter.dev)
