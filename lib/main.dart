@@ -1,12 +1,10 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:simple_design/router.dart';
+import 'package:simple_design/simple_design.dart';
 
-void main(){
-  runApp(SimpleApp());
+void main() {
+  runApp(const SimpleApp());
 }
-
 
 class SimpleApp extends StatelessWidget {
   const SimpleApp({super.key});
@@ -17,7 +15,9 @@ class SimpleApp extends StatelessWidget {
       routerConfig: router,
       title: 'Simple Design',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue))
+      theme: SDTheme.light,
+      darkTheme: SDTheme.dark,
+      themeMode: ThemeMode.system,
     );
   }
 }
