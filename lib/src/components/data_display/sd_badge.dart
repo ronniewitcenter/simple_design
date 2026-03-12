@@ -37,21 +37,23 @@ class SDBadge extends StatelessWidget {
 
     final label = (count ?? 0) > 99 ? '99+' : '${count ?? 0}';
 
-    return Container(
-      constraints: const BoxConstraints(minWidth: 20),
-      height: 20,
-      padding: const EdgeInsets.symmetric(horizontal: 6),
-      decoration: BoxDecoration(
-        color: cs.error,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      alignment: Alignment.center,
-      child: Text(
-        label,
-        style: Theme.of(context).textTheme.labelSmall?.copyWith(
-              color: cs.onError,
-              fontWeight: FontWeight.bold,
-            ),
+    return IntrinsicWidth(
+      child: Container(
+        constraints: const BoxConstraints(minWidth: 20),
+        height: 20,
+        padding: const EdgeInsets.symmetric(horizontal: 6),
+        decoration: BoxDecoration(
+          color: cs.error,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        alignment: Alignment.center,
+        child: Text(
+          label,
+          style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                color: cs.onError,
+                fontWeight: FontWeight.bold,
+              ),
+        ),
       ),
     );
   }
