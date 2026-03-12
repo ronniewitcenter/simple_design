@@ -197,3 +197,6 @@ MaterialApp(
 SDButton.primary(label: 'Submit', onPressed: () {})
 SDTextField(label: 'Email', hint: 'Enter your email')
 ```
+## Agents 
+- use `doc-updater` agent in [doc-updater](./.claude/agents/docs-updater.md) to update the `CHANGELOG.md` and  `README.md` every after sessions
+- use `release-tagger` agent in [release-tagger](./.claude/agents/release-tagger.md) to commit the changes and tag the version
