@@ -42,48 +42,41 @@ class SDAccordion extends StatefulWidget {
 }
 
 class _SDAccordionState extends State<SDAccordion> {
-  late List<bool> _expanded;
+  late final List<ExpansibleController> _controllers;
 
   @override
   void initState() {
     super.initState();
-    _expanded = List.filled(widget.items.length, false);
+    _controllers = List.generate(
+      widget.items.length,
+      (_) => ExpansibleController(),
+    );
   }
 
-  void _onTap(int index, bool isExpanded) {
-    setState(() {
-      if (widget.allowMultiple) {
-        _expanded[index] = !isExpanded;
-      } else {
-        for (int i = 0; i < _expanded.length; i++) {
-          _expanded[i] = i == index ? !isExpanded : false;
+  void _onExpansionChanged(int tappedIndex, bool isNowExpanded) {
+    if (!widget.allowMultiple && isNowExpanded) {
+      for (int i = 0; i < _controllers.length; i++) {
+        if (i != tappedIndex && _controllers[i].isExpanded) {
+          _controllers[i].collapse();
         }
       }
-    });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return ExpansionPanelList(
-      elevation: 0,
-      expandedHeaderPadding: EdgeInsets.zero,
-      expansionCallback: _onTap,
-      children: widget.items.asMap().entries.map((entry) {
-        final i = entry.key;
-        final item = entry.value;
-        return ExpansionPanel(
-          isExpanded: _expanded[i],
-          canTapOnHeader: true,
-          headerBuilder: (context, isExpanded) => ListTile(
-            leading: item.leading,
-            title: Text(item.title),
-          ),
-          body: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-            child: item.child,
-          ),
+    return Column(
+      children: List.generate(widget.items.length, (i) {
+        final item = widget.items[i];
+        return ExpansionTile(
+          controller: _controllers[i],
+          leading: item.leading,
+          title: Text(item.title),
+          onExpansionChanged: (expanded) => _onExpansionChanged(i, expanded),
+          childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+          children: [item.child],
         );
-      }).toList(),
+      }),
     );
   }
 }
